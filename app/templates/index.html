@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semantic Video Tracking Studio</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Semantic Video Tracking Studio</h1>
+    <p class="subtitle">Upload video → prompt tracking → process → apply privacy effect → preview and download.</p>
+
+    <section class="panel">
+      <h2>1) Upload Video</h2>
+      <input id="videoFile" type="file" accept="video/*" />
+      <button id="uploadBtn">Upload</button>
+      <p id="uploadStatus"></p>
+    </section>
+
+    <section class="panel">
+      <h2>2) What do you want to track?</h2>
+      <input id="prompt" placeholder="faces / person / red dress / head" />
+      <button id="processBtn">Process Video</button>
+      <div class="progress-wrap">
+        <progress id="progressBar" max="100" value="0"></progress>
+        <span id="progressText">Idle</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>3) Apply Effect</h2>
+      <label>Effect</label>
+      <select id="effect">
+        <option value="blur">Blur</option>
+        <option value="pixelate">Pixelation</option>
+        <option value="solid">Solid Mask</option>
+        <option value="outline">Outline</option>
+        <option value="dim_bg">Background Dimming</option>
+      </select>
+      <label>Intensity</label>
+      <input id="intensity" type="range" min="1" max="30" value="15" />
+      <span id="intensityVal">15</span>
+      <button id="applyBtn">Apply Effect</button>
+    </section>
+
+    <section class="panel">
+      <h2>4) Preview</h2>
+      <video id="resultVideo" controls playsinline></video>
+      <a id="downloadLink" class="download" href="#" download>Download Final MP4</a>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
